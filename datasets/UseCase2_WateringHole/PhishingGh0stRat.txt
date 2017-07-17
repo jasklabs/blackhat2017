@@ -1,0 +1,215 @@
+README Phishing Gh0st RAT
+
+Scenario
+
+Vic Tim (victim@miamip0wnmachine.com) gets an email from Rod.Soto@jask.io with title Important document,
+Vic Tim clicks on the link http://bit.ly/2om4gv1 --> which is an Exploit kit http://159.203.64.71:3000/demos/basic.html
+then there is a pushed download from http://159.203.64.71:90/ghost.zip, Vic Tim downloads file then unzips using
+password 1234 (ghostclient.exe), then there is a connection back to ratlab.systes.net (Dynamic DNS). Below 
+actions performed during simulation. 
+
+
+
+Items
+
+RAT = Gh0st RAT v1
+EK = Beef
+Phishing short uri: http://bit.ly/2om4gv1
+EK page: http://159.203.64.71:3000/demos/basic.html
+Download file from http://159.203.64.71:90/ghost.zip
+File: bad Zip file = ghost.zip ghostclient.exe (Password 1234)
+C2 = http://ratlab.sytes.net:80 (73.245.208.66)
+Malicious email form Rod.Soto@jask.io
+Victim email = victim@miamip0wnmachine.com
+
+
+Actions
+
+Use of file utitlity -- 4:28 PM EST
+	- C drive 
+	- Transfered filed flag.txt -- 4:29 PM EST
+	- Opened system manager -- 4:30
+	- Opened Keylogger -- 4:32
+	"[04/11/2017 16:32:45] (Run)
+notepad
+[04/11/2017 16:32:47] (Untitled - Notepad)
+this isa test of the gh0st rat keylogger
+
+test test test test test "
+
+	- Remote Shell  -- 4:33 PM EST
+	Microsoft Windows XP [Version 5.1.2600]
+(C) Copyright 1985-2001 Microsoft Corp.
+
+C:\WINDOWS\system32>hostname
+hostname
+Workstation1
+
+C:\WINDOWS\system32>rsop /s
+rsop /s
+'rsop' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\WINDOWS\system32>rsop
+rsop
+'rsop' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\WINDOWS\system32>system info
+system info
+'system' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\WINDOWS\system32>systeminfo
+systeminfo
+
+Host Name:                 WORKSTATION1
+OS Name:                   Microsoft Windows XP Professional
+OS Version:                5.1.2600 Service Pack 2 Build 2600
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Member Workstation
+OS Build Type:             Uniprocessor Free
+Registered Owner:          trajan
+Registered Organization:   
+Product ID:                76487-640-1754666-23910
+Original Install Date:     3/20/2012, 8:57:25 PM
+System Up Time:            0 Days, 2 Hours, 49 Minutes, 55 Seconds
+System Manufacturer:       VMware, Inc.
+System Model:              VMware Virtual Platform
+System type:               X86-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: x86 Family 16 Model 4 Stepping 2 AuthenticAMD ~2294 Mhz
+BIOS Version:              INTEL  - 6040000
+Windows Directory:         C:\WINDOWS
+System Directory:          C:\WINDOWS\system32
+Boot Device:               \Device\HarddiskVolume1
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (GMT-05:00) Eastern Time (US & Canada)
+Total Physical Memory:     2,047 MB
+Available Physical Memory: 1,686 MB
+Virtual Memory: Max Size:  2,048 MB
+Virtual Memory: Available: 2,003 MB
+Virtual Memory: In Use:    45 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    kkctf.local
+Logon Server:              N/A
+Hotfix(s):                 3 Hotfix(s) Installed.
+                           [01]: File 1
+                           [02]: Q147222
+                           [03]: KB893803v2 - Update
+NetWork Card(s):           1 NIC(s) Installed.
+                           [01]: VMware Accelerated AMD PCNet Adapter
+                                 Connection Name: Local Area Connection
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 192.168.4.20
+
+C:\WINDOWS\system32>
+
+C:\WINDOWS\system32>arp -a
+arp -a
+
+Interface: 192.168.4.20 --- 0x2
+  Internet Address      Physical Address      Type
+  192.168.4.1           00-2a-10-d5-5b-24     dynamic   
+  192.168.4.15          00-0c-29-3f-93-ca     dynamic   
+  192.168.4.35          00-0c-29-90-1e-45     dynamic   
+  
+  
+  
+C:\WINDOWS\system32>ipconfig /all
+ipconfig /all
+
+Windows IP Configuration
+
+        Host Name . . . . . . . . . . . . : Workstation1
+        Primary Dns Suffix  . . . . . . . : kkctf.local
+        Node Type . . . . . . . . . . . . : Broadcast
+        IP Routing Enabled. . . . . . . . : No
+        WINS Proxy Enabled. . . . . . . . : No
+        DNS Suffix Search List. . . . . . : kkctf.local
+
+Ethernet adapter Local Area Connection:
+
+        Connection-specific DNS Suffix  . : 
+        Description . . . . . . . . . . . : VMware Accelerated AMD PCNet Adapter
+        Physical Address. . . . . . . . . : 00-0C-29-46-0E-3B
+        Dhcp Enabled. . . . . . . . . . . : No
+        IP Address. . . . . . . . . . . . : 192.168.4.20
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 192.168.4.1
+        DNS Servers . . . . . . . . . . . : 192.168.4.35
+                                            192.168.4.36
+                                            
+C:\WINDOWS\system32>net share
+net share
+
+Share name   Resource                        Remark
+
+-------------------------------------------------------------------------------
+IPC$                                         Remote IPC                        
+ADMIN$       C:\WINDOWS                      Remote Admin                      
+C$           C:\                             Default share                     
+C            C:\                             
+LOG          C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\LOG
+                                             
+MSSQL.1      C:\Program Files\Microsoft SQL Server\MSSQL.1
+                                             
+The command completed successfully.
+
+-- 4:39 PM EST re opened shell
+C:\WINDOWS\system32>net user
+net user
+
+User accounts for \\
+
+-------------------------------------------------------------------------------
+Administrator            ASPNET                   Guest                    
+HelpAssistant            IUSR_TRAJAN-22529465     IWAM_TRAJAN-22529465     
+SUPPORT_388945a0         
+The command completed with one or more errors.
+
+
+C:\WINDOWS\system32>net view
+net view
+Server Name            Remark
+
+-------------------------------------------------------------------------------
+\\DC3                                                                          
+\\WIN2K12SDC                                                                   
+\\WORKSTATION1                                                                 
+The command completed successfully.
+
+C:\WINDOWS\system32>ping -a 192.168.4.38
+ping -a 192.168.4.38
+
+Pinging win764pro.kkctf.local [192.168.4.38] with 32 bytes of data:
+
+Reply from 192.168.4.38: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.38: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.38: bytes=32 time<1ms TTL=128
+Reply from 192.168.4.38: bytes=32 time<1ms TTL=128
+
+Ping statistics for 192.168.4.38:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\WINDOWS\system32>net view \\win764pro
+net view \\win764pro
+Shared resources at \\win764pro
+
+
+
+Share name  Type  Used as  Comment  
+
+-------------------------------------------------------------------------------
+share2      Disk                    
+The command completed successfully.
+
+
+4:48PM opened shell again
+5Pm Uninstall
+
+                                            

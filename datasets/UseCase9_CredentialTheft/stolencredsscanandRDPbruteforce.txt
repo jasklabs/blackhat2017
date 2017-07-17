@@ -1,0 +1,13 @@
+Scenario 4 VPN login with stolen credentials to RDP scanning and brute force - README
+Scenario
+Attacker steals creds via phishing (Use scenario 3 pcaps --> SpearPhishingZIPProtecte…EKC2LM)
+---> This will provide a complete scenario <----
+Attacker logs in via vpn (Vpnc Kali Linux --> Cisco ASA 5505 -- 6.6.6.10)
+Attacker Nmaps internal network (Nmap -Sv 192.168.4.0-254)
+Attacker proceeds to bruteforce using stolen credentials using Hydra
+Attacker 6.6.6.25 external
+Attacker VPN Internal 192.168.4.220
+Cisco ASA5505 --> 6.6.6.10
+Stolen cred kkctf\administrator
+computers bruteforced: 192.168.4.15,35,38,107
+Attacker logs in successfully at 192.168.4.35 from 192.168.4.220 (win2k12sdc) --> Domain Controller
